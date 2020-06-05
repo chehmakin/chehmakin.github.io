@@ -1,4 +1,4 @@
-# [ВКонтакте](https:vk.com/chehmaka)
+# [ВКонтакте](https://vk.com/chehmaka)
 
 # Олег Чехмакин
 
