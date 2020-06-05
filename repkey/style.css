@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+#output_caps{
+  text-transform: uppercase;
+}
+
+.main{
+  height: 100vh;
+  background-image: url(head.jpg);
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  -moz-background-size: 100% 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100% 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100% 100%; /* Opera 9.6+ */
+  background-size: 100% 100%; /* Современные браузеры */
+  padding-top: 50px;
+  font-family: 'PT Mono', monospace;
+
+}
+
+.logo{
+  margin-left: 10%;
+  font-size: 50pt;
+  text-shadow: 1px 1px 100px #fff;
+}
+
+.logo-span{
+  color: #a5e996;
+}
+
+.download-win{
+  font-size: 25pt;
+  font-family: 'Roboto Slab', serif;
+  width: 400px;
+  padding: 13px 7.5px;
+  margin: 0 auto;
+  margin-top: 150px;
+  border: 2px solid #a5e996;
+  border-radius: 5px;
+  transition: 0.5s all;
+}
+
+.download-win a{
+  text-decoration: none;
+  color: #212529;
+  transition: 0.3s all;
+}
+
+.download-win:hover{
+  background: #a5e996;
+  cursor: pointer;
+}
+
+.download-win a:hover{
+  color: #6f6f6f;
+  text-decoration: none;
+}
+
+
+.skills-title{
+  font-size: 50pt;
+  margin-left: 2%;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bold;
+}
+
+.skills{
+  font-family: 'Istok Web', sans-serif;
+  margin-left: 3%;
+  color: #414141;
+  transition: 0.3s all;
+}
+
+.skills:hover{
+  color: #6f6f6f;
+  margin-left: 3.5%;
+  text-decoration: none;
+}
+.for-who{
+  font-family: 'Istok Web', sans-serif;
+  color: #414141;
+}
+
+
+#input{
+  margin-top: 10px;
+  margin-left: 3%;
+  background: #fff;
+  border: 2px solid #a5e996;
+  font-size: 25pt;
+}
+
+.form-title:hover{
+  margin-left: 3%;
+  color: #414141;
+}
+
+#add_output{
+  font-size: 20pt;
+  margin-left: 3%;
+  color: #414141;
+  background: #a5e996;
+}
+
+#copy{
+  font-size: 20pt;
+  margin-left: 3%;
+  color: #414141;
+  background: #a5e996;
+}
+
+.result{
+  font-family: 'Roboto Slab', serif;
+}
+
+
+.example{
+  text-align: center;
+  float: right;
+  z-index: 1;
+
+  float: top;
+}
+
+small{
+  color:#e46f6f;
+  font-size: 20pt !important;
+}

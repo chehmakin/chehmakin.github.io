@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="C:\Users\ПК\Documents\RepKey_desktop\icon.ico" type="image/ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>RepKey | RU -> EN</title>
+
+</head>
+<body>
+  <h2 class="skills form-title">Вставь неправильный текст и получишь правильный</h2>
+  <textarea name="" id="input" class="alert alert-primary col-md-5" placeholder="Из русской в английскую" rows="4"></textarea>
+  <div class="example">
+    <h2>руддщ цщкдв! <br>
+        <svg class="bi bi-arrow-bar-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.354 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L8 12.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5V13a.5.5 0 0 1-1 0V6.5A.5.5 0 0 1 8 6zM2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+      </svg><br> hello world!</h2>
+</div><br>
+  <input id="add_output" class="btn btn-primary col-md-3" type="button" value="Получить"/><br><br>
+  <div style="max-width: 1000px; overflow: hidden;">
+    <h2 class="skills form-title">Правильный текст:</h2>
+    <h1 id="output" class="skills form-title result"></h1>
+  </div>
+    
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="ru_to_en.js" charset="utf-8"></script>
+
+</body>
+</html>
