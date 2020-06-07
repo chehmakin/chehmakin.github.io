@@ -134,3 +134,9 @@ small{
   color:#e46f6f;
   font-size: 20pt !important;
 }
+
+.footer{
+  text-align: center;
+  width: 100%;
+  background: #c7c7c7;
+}
