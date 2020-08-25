@@ -28,3 +28,8 @@ a{
 	color: #000;
 	text-decoration: none;
 }
+
+.footer{
+	width:100%;
+	background: #c7c7c7;
+}
