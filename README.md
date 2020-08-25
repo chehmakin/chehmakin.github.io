@@ -6,6 +6,8 @@
 
 # Личные проекты:
 
-# [Скачать RepKey](https://chehmakin.github.io/repkey)
+# [Программа RepKey](https://chehmakin.github.io/repkey) (10.06.2020)
 
-# [Сайт OneSentStory](https://onesentstory.ru/)
+# [Сайт OneSentStory](https://onesentstory.ru/) (04.08.2020)
+
+# [Игра Змейка](https://chehmakin.github.io/snake) (25.08.2020)
