@@ -4,6 +4,7 @@ var card = document.getElementById('card');
 var card_col = 0;
 var card_speed = 0;
 var card_col_view = document.getElementById('card__balance');
+var level_view = document.getElementById('level');
 var level = [
 	'Тяжело',
 	'Средне',
