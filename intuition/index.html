@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<title>Intuition</title>
+</head>
+<body>
+	<div id="quantity__card">
+		<h3>Выберите количество карт</h3>
+		<nav>
+			<ul>
+				<li><h3  onClick='add_30()'>30</h3></li>
+				<li><h3 onClick='add_60()'>60</h3></li>
+				<li><h3  onClick='add_90()'>90</h3></li>
+			</ul>
+	</nav>
+	</div>
+
+	<div id="menu">
+		<h2>Осталось карт: <span id="card__balance"></span></h2>
+		<!-- <h3>Клики(для отслежки) <span id="click"></span></h3> -->
+		<h2 id="restart" onClick="window.location.reload()">Заново</h2>
+	</div>
+
+
+		<div id="card" title="НАЧАТЬ" onClick="randomColor()"></div>
+		<script src="main.js"></script>
+</body>
+</html>

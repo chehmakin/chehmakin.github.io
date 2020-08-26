@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background: #69c;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+	user-select: none;
+}
+
+#card {
+	width: 300px;
+	height: 400px;
+	margin-top: 25px !important;
+	margin: 0 auto;
+	border-radius: 15px;
+	transition: 0.5s all;
+	box-shadow: inset 2px 2px 5px black, 2px 2px 5px #c7c7c7;
+}
+
+#card:hover{
+	cursor: pointer;
+
+}
+
+#quantity__card, #menu{
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+.main__input{
+	font-size: 1.4em;
+	border-radius: 10px;
+}
+
+#error{
+	color: #e52325;
+	display: none;
+}
+
+ul{
+	display: flex;
+	margin-top: 20px;
+}
+
+ul li{
+	list-style: none;
+	margin-left: 2%;
+	border: 1px solid silver;
+	padding: 7px 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: 0.5s all;
+}
+
+
+#restart{
+	transition: 0.5s all;
+	cursor: pointer;
+}
+
+#restart:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+li:hover{
+	background: #bab3b2;
+}
