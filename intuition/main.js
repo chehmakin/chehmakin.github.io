@@ -1,9 +1,9 @@
 var card = document.getElementById('card');
 // var click = 0;
 // var click__reader = document.getElementById('click');
-var card_col = 0;
+
 var card_speed = 0;
-var card_col_view = document.getElementById('card__balance');
+
 var level_view = document.getElementById('level');
 var level = [
 	'2.5 c',
@@ -12,18 +12,6 @@ var level = [
 ];
 
 
-function add_30_card(){
-	card_col = 30;
-	card_col_view.innerHTML = card_col;
-}
-function add_60_card(){
-	card_col = 60;
-	card_col_view.innerHTML = card_col;
-}
-function add_90_card(){
-	card_col = 90;
-	card_col_view.innerHTML = card_col;
-}
 
 var color = [
 	'#000',
