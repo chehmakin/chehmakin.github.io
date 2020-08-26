@@ -11,19 +11,30 @@ body{
 	user-select: none;
 }
 
-#card {
+.card{
 	width: 300px;
 	height: 400px;
-	margin-top: 25px !important;
+	/* margin-top: 25px !important; */
 	margin: 0 auto;
 	border-radius: 15px;
 	transition: 0.5s all;
-	box-shadow: inset 2px 2px 5px black, 2px 2px 5px #c7c7c7;
+	box-shadow: inset 2px 2px 5px black, 2px 2px 5px #c7c7c7 ;
+	margin-bottom: 45px;
+	background: #fff;
+	cursor: pointer;
 }
 
-#card:hover{
+.card_b{
+	width: 300px;
+	height: 400px;
+	/* margin-top: 25px !important; */
+	margin: 0 auto;
+	border-radius: 15px;
+	transition: 0.5s all;
+	box-shadow: inset 2px 2px 5px black, 2px 2px 5px #c7c7c7 ;
+	margin-bottom: 45px;
+	background: #000;
 	cursor: pointer;
-
 }
 
 #quantity__card, #menu{
