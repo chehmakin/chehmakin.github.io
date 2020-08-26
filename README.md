@@ -11,3 +11,5 @@
 # [Сайт OneSentStory](https://onesentstory.ru/) (04.08.2020)
 
 # [Игра Змейка](https://chehmakin.github.io/snake) (25.08.2020)
+
+# [Тренировка интуиции](https://chehmakin.github.io/intuition) (26.08.2020)
