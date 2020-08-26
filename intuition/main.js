@@ -11,15 +11,15 @@ var level = [
 	'Легко'
 ];
 
-function add_30(){
+function add_30_card(){
 	card_col = 30;
 	card_col_view.innerHTML = card_col;
 }
-function add_60(){
+function add_60_card(){
 	card_col = 60;
 	card_col_view.innerHTML = card_col;
 }
-function add_90(){
+function add_90_card(){
 	card_col = 90;
 	card_col_view.innerHTML = card_col;
 }
