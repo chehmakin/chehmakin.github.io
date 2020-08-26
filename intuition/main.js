@@ -31,41 +31,42 @@ var color = [
 ];
 
 
-function randomColor() {
-	var rc = color[ Math.floor(Math.random() * color.length)];
-	var card = document.getElementById('card');
+function changeColor() {
+	card.className = (card.className == 'card' ? 'card_b' : 'card');
+// 	var rc = color[ Math.floor(Math.random() * color.length)];
+// 	var card = document.getElementById('card');
 
-	card.style.background = rc;
-	// click++;
-	// click__reader.innerHTML = click;
-	card_col--;
-	card_col_view.innerHTML = card_col;
-	if (card_col == 0) {
-		randomColor = false;
+// 	card.style.background = rc;
+// 	// click++;
+// 	// click__reader.innerHTML = click;
+// 	card_col--;
+// 	card_col_view.innerHTML = card_col;
+// 	if (card_col == 0) {
+// 		randomColor = false;
 
-	} 
+// 	} 
 
-	else{
-		console.log('OK');
-	};
+// 	else{
+// 		console.log('OK');
+// 	};
 }
 
 
 function add_1s(){
 	card_speed = 2500;
 	level_view.innerHTML = level[0];
-	setInterval(randomColor, card_speed);
+	setInterval(changeColor, card_speed);
 }
 function add_15s(){
 	card_speed = 3000;
 	level_view.innerHTML = level[1];
-	setInterval(randomColor, card_speed);
+	setInterval(changeColor, card_speed);
 
 }
 function add_2s(){
 	card_speed = 3500;
 	level_view.innerHTML = level[2];
-	setInterval(randomColor, card_speed);
+	setInterval(changeColor, card_speed);
 
 }
 
