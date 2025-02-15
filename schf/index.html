@@ -169,7 +169,7 @@
 		<img src="./2.jpg" alt="Изображение 2" class="corner-image right-top">
 		<img src="./3.jpg" alt="Изображение 3" class="corner-image left-bottom">
 		<img src="./4.jpg" alt="Изображение 4" class="corner-image right-bottom">
-		<button class="button" onclick="showFireworks() document.getElementById('background-music').play()">🐱 МЯУ 🐱</button>
+		<button class="button" onclick="showFireworks()">🐱 МЯУ 🐱</button>
 </div>
 
 	<div id="fireworks">
@@ -186,6 +186,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.0/dist/index.umd.min.js"></script>
 	<script>
 		function showFireworks() {
+		document.getElementById('background-music').play();
             document.getElementById('main-content').classList.add('hidden');
             document.getElementById('body').style.backgroundColor = 'black'; // Плавная смена цвета фона
             setTimeout(() => {
