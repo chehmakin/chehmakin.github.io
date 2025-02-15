@@ -32,8 +32,8 @@
         }
         .corner-image {
             position: absolute;
-            width: 300px; /* Размер изображения */
-            height: 300px;
+            width: 245px; /* Размер изображения */
+            height: 245px;
             border-radius: 20px; /* Скругленные края */
             z-index: 1;
         }
@@ -96,7 +96,8 @@
         }
         #text-box {
             background: white;
-            padding: 20px;
+            padding: 10px;
+		width: 80%;
             border-radius: 10px;
             font-size: 20px;
             text-align: center;
@@ -121,24 +122,24 @@
             overflow: hidden;
             display: none; /* Скрываем звездное небо по умолчанию */
         }
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 25s infinite, fall linear;
-        }
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 5s infinite, fall linear infinite; /* Добавляем infinite к анимации fall */
+}
         @keyframes twinkle {
             0% { opacity: 0; }
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
-        @keyframes fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100vh); }
-        }
+     @keyframes fall {
+    0% { transform: translateY(-100vh); } /* Начинаем выше видимой области */
+    100% { transform: translateY(100vh); } /* Заканчиваем ниже видимой области */
+}
     </style>
 </head>
 <body id="body">
