@@ -1,30 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow: hidden;">
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<title>МУР МУР МУР</title>
-	<style>
-		body {
-		font-family: "Marck Script", serif;
-		font-weight: 400;
-		font-style: normal;
-			margin: 0;
-			overflow-x: hidden;
-			/* Отключаем горизонтальный скролл */
-			background-color: #f0f0f0;
-			height: 100vh;
-			/* Занимает всю высоту окна */
-			position: relative;
-			transition: background-color 1s ease-in-out;
-			overflow: hidden;
-		}
-.star-field {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МУР МУР МУР</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Убираем прокрутку */
+            background: #f0f0f0; /* Белый фон по умолчанию */
+            transition: background-color 1s ease-in-out; /* Плавный переход фона */
+        }
+        .container {
+            position: relative;
+            z-index: 2; /* Убедиться, что кнопка над звездным полем */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .corner-image {
+            position: absolute;
+            width: 300px; /* Размер изображения */
+            height: 300px;
+            border-radius: 20px; /* Скругленные края */
+            z-index: 1;
+        }
+        .corner-image.left-top {
+            top: -50px;
+            left: -50px;
+            transform: rotate(-20deg); /* Поворот изображения */
+        }
+        .corner-image.right-top {
+            top: -50px;
+            right: -50px;
+            transform: rotate(20deg); /* Поворот изображения */
+        }
+        .corner-image.left-bottom {
+            bottom: -50px;
+            left: -50px;
+            transform: rotate(15deg); /* Поворот изображения */
+        }
+        .corner-image.right-bottom {
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(-15deg); /* Поворот изображения */
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none; /* Отключаем взаимодействие после исчезновения */
+            transition: opacity 1s ease-in-out;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 2; /* Убедиться, что кнопка над изображениями */
+        }
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            opacity: 0; /* Начальное значение для плавного появления */
+            transition: opacity 1s ease-in-out;
+        }
+        #fireworks.show {
+            opacity: 1; /* Плавное появление */
+        }
+        #text-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            opacity: 0; /* Начальное значение для плавного появления */
+            transition: opacity 1s ease-in-out;
+        }
+        #text-box.show {
+            opacity: 1; /* Плавное появление */
+        }
+        .star-field {
             position: absolute;
             top: 0;
             left: 0;
@@ -32,6 +111,7 @@
             height: 100%;
             z-index: 0;
             overflow: hidden;
+            display: none; /* Скрываем звездное небо по умолчанию */
         }
         .star {
             position: absolute;
@@ -51,204 +131,77 @@
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
-		}
-		.container {
-			position: relative;
-			height: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 2;
-			overflow: hidden;
-			/* Убедиться, что кнопка над изображениями */
-		}
-
-		.corner-image {
-			position: absolute;
-			width: 250px;
-			/* Размер изображения */
-			height: 250px;
-			border-radius: 20px;
-			/* Скругленные края */
-			z-index: 1;
-		}
-
-		.corner-image.left-top {
-			top: -50px;
-			left: -50px;
-			transform: rotate(-20deg);
-			/* Поворот изображения */
-		}
-
-		.corner-image.right-top {
-			top: -50px;
-			right: -50px;
-			transform: rotate(20deg);
-			/* Поворот изображения */
-		}
-
-		.corner-image.left-bottom {
-			bottom: -50px;
-			left: -50px;
-			transform: rotate(15deg);
-			/* Поворот изображения */
-		}
-
-		.corner-image.right-bottom {
-			bottom: -50px;
-			right: -50px;
-			transform: rotate(-15deg);
-			/* Поворот изображения */
-		}
-
-		.corner-image::after {
-			content: attr(alt);
-			/* Отображение alt-текста */
-			position: absolute;
-			top: 100%;
-			/* Позиционирование под изображением */
-			left: 50%;
-			transform: translateX(-50%);
-			background: rgba(0, 0, 0, 0.5);
-			color: white;
-			padding: 5px 10px;
-			border-radius: 5px;
-			white-space: nowrap;
-			z-index: 2;
-		}
-
-		.hidden {
-			opacity: 0;
-			pointer-events: none;
-			/* Отключаем взаимодействие после исчезновения */
-			transition: opacity 1s ease-in-out;
-		}
-
-		.button {
-			font-family: "Marck Script", serif;
-			font-weight: 400;
-			font-style: normal;
-			padding: 15px 30px;
-			font-size: 18px;
-			color: white;
-			background-color: #3498db;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			transition: background-color 0.3s, transform 0.3s;
-			z-index: 2;
-			/* Убедиться, что кнопка над изображениями */
-		}
-
-		.button:hover {
-			background-color: #2980b9;
-			transform: scale(1.1);
-		}
-
-		#fireworks {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: black;
-			display: none;
-			justify-content: center;
-			align-items: center;
-			z-index: 3;
-			opacity: 0;
-			/* Начальное значение для плавного появления */
-			transition: opacity 1s ease-in-out;
-		}
-
-		#fireworks.show {
-			opacity: 1;
-			/* Плавное появление */
-		}
-
-		#text-box {
-			background: white;
-			padding: 10px;
-			width:80%;
-			border-radius: 10px;
-			font-size: 20px;
-			text-align: center;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			z-index: 4;
-			opacity: 0;
-			/* Начальное значение для плавного появления */
-			transition: opacity 0.5s ease-in-out;
-		}
-
-		#text-box.show {
-			opacity: 1;
-			/* Плавное появление */
-		}
-	</style>
+    </style>
 </head>
-
 <body id="body">
-	  <div class="star-field" id="star-field"></div>
-	<div class="container" id="main-content">
-		<img src="./1.jpg" alt="Изображение 1" class="corner-image left-top">
-		<img src="./2.jpg" alt="Изображение 2" class="corner-image right-top">
-		<img src="./3.jpg" alt="Изображение 3" class="corner-image left-bottom">
-		<img src="./4.jpg" alt="Изображение 4" class="corner-image right-bottom">
-		<button class="button" onclick="showFireworks()">🐱 МЯУ 🐱</button>
-</div>
+    <div class="container" id="main-content">
+        <img src="./1.jpg" alt="Изображение 1" class="corner-image left-top">
+        <img src="./1.jpg" alt="Изображение 2" class="corner-image right-top">
+        <img src="./1.jpg" alt="Изображение 3" class="corner-image left-bottom">
+        <img src="./1.jpg" alt="Изображение 4" class="corner-image right-bottom">
+        <button class="button" onclick="showFireworks()">Нажми меня!</button>
+    </div>
 
-	<div id="fireworks">
-		<div id="text-box">Солнышко, я очень счастлив, что мы вместе, безумно рад, что у меня такая девочка. Заинька, мы немножко припозднились и поэтому поздравляю тебя 16 фераля (хихихи). Но ничего же страшного. 
-			Ты у меня самая лучшая, лубимая, красивая. Ты вообще самая умничка, я тебя очень сина сина люблю!!</div>
-	</div>
+    <div id="fireworks">
+        <div class="star-field" id="star-field"></div>
+        <div id="text-box">Поздравляем! 🎉</div>
+    </div>
 
-	<audio id="background-music" loop hidden>
-		<source src="./pesnya.mp3" type="audio/mpeg">
-		Твой браузер не поддерживает аудио.
-	</audio>
+    <audio id="background-music" autoplay loop hidden>
+        <source src="./pesnya.mp3" type="audio/mpeg">
+        Твой браузер не поддерживает аудио.
+    </audio>
 
-	<!-- Подключаем библиотеку fireworks.js через CDN -->
-	<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.0/dist/index.umd.min.js"></script>
-	<script>
-		function showFireworks() {
-		document.getElementById('background-music').play();
-            document.getElementById('main-content').classList.add('hidden');
-            document.getElementById('body').style.backgroundColor = 'black'; // Плавная смена цвета фона
-            setTimeout(() => {
-                const container = document.getElementById('fireworks');
-                container.style.display = 'flex';
-                container.classList.add('show'); // Плавное появление фона
-
-                const fireworks = new Fireworks.default(container, {
-                    opacity: 0.5,
-                    acceleration: 1.05,
-                    friction: 0.97,
-                    gravity: 1.5,
-                    particles: 70, // Можно изменить для других эффектов
-                    trace: 3,
-                    explosion: 6,
-                    autoresize: true,
-                    brightness: { min: 50, max: 80 },
-                    boundaries: { x: 0, y: 0, width: container.clientWidth, height: container.clientHeight },
-                    sound: { enable: true, list: ['https://example.com/звук-салюта.mp3'], min: 4, max: 8 },
-			shape: 'star'
-                });
-
-                fireworks.start();
-
-                // Показываем текстовое окно через 3 секунды
-                setTimeout(() => {
-                    const textBox = document.getElementById('text-box');
-                    textBox.style.display = 'block';
-                    textBox.classList.add('show'); // Плавное появление текста
-                }, 1500);
-            }, 1000); // Время, соответствующее продолжительности перехода
+    <!-- Подключаем библиотеку fireworks.js через CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.0/dist/index.umd.min.js"></script>
+    <script>
+        function createStarField() {
+            const starField = document.getElementById('star-field');
+            for (let i = 0; i < 200; i++) { // Количество звезд
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 5 + 5}s`; // Различная длительность мерцания
+                star.style.animationDelay = `${Math.random() * 5}s`; // Различная задержка перед мерцанием
+                starField.appendChild(star);
+            }
         }
-		document.addEventListener('DOMContentLoaded', createStarField);
-	</script>
-</body>
 
+        function showFireworks() {
+		document.getElementById('background-music').play()
+            document.getElementById('main-content').classList.add('hidden');
+            document.body.style.backgroundColor = 'black'; // Изменяем фон на черный
+            document.getElementById('star-field').style.display = 'block';
+            document.getElementById('fireworks').style.display = 'flex';
+            document.getElementById('fireworks').classList.add('show');
+
+            const fireworks = new Fireworks.default(document.getElementById('fireworks'), {
+                opacity: 0.5,
+                acceleration: 1.05,
+                friction: 0.97,
+                gravity: 1.5,
+                particles: 70,
+                trace: 3,
+                explosion: 6,
+                autoresize: true,
+                brightness: { min: 50, max: 80 },
+                boundaries: { x: 0, y: 0, width: document.getElementById('fireworks').clientWidth, height: document.getElementById('fireworks').clientHeight },
+                sound: { enable: true, list: ['https://example.com/звук-салюта.mp3'], min: 4, max: 8 }
+            });
+
+            fireworks.start();
+
+            // Показываем текстовое окно через 3 секунды
+            setTimeout(() => {
+                const textBox = document.getElementById('text-box');
+                textBox.style.display = 'block';
+                textBox.classList.add('show');
+            }, 3000);
+        }
+
+        // Создаем звездное поле при запуске фейерверка
+        document.querySelector('.button').addEventListener('click', createStarField);
+    </script>
+</body>
 </html>
